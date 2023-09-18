@@ -4,10 +4,12 @@
 
 int main() {
     MaquinaDelTiempo maquina;
+    
     maquina.crearEventos();
+    maquina.imprimirEventosEnFormato();
     maquina.mostrarEventos();
-    maquina.mostrarEventosTipoA();
-    maquina.mostrarEventosTipoB();
+    //maquina.mostrarEventosTipoA();
+    //maquina.mostrarEventosTipoB();
     maquina.mostrarSingularidad();
     
     int totalEventos = maquina.obtenerTotalEventos();

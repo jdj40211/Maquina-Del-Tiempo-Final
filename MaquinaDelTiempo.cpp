@@ -15,7 +15,7 @@ MaquinaDelTiempo::MaquinaDelTiempo() {
 }
 
 MaquinaDelTiempo::~MaquinaDelTiempo() {
-    // Implementa la liberación de memoria para los nodos si es necesario.
+    // libera memoria si es que es necesario
 }
 
 void MaquinaDelTiempo::crearEventos() {
@@ -53,11 +53,34 @@ void MaquinaDelTiempo::crearEventos() {
         }
     }
 }
-
-void MaquinaDelTiempo::mostrarEventos() {
+void MaquinaDelTiempo::imprimirEventosEnFormato() {
+    std :: cout << "\n";
     Nodo* actual = primerEvento;
     int contador = 1;
     while (actual != nullptr) {
+        std::cout << "[";
+        std::cout << actual->datos << "|";
+        std::cout << actual->cientifico[0] << "|";
+        if (actual->datos == 1 || actual->datos == 2) {
+            std::cout << "A";
+        } else {
+            std::cout << "B";
+        }
+        std::cout << "] -> ";
+        actual = actual->PtrFuturo;
+        contador++;
+
+    }
+}
+
+void MaquinaDelTiempo::mostrarEventos() {
+    std :: cout << "\n";
+    std :: cout << "-------------------------------------------------";
+    std :: cout << "\n";
+    Nodo* actual = primerEvento;
+    int contador = 1;
+    while (actual != nullptr) {
+        std :: cout << "\n";
         std::cout << "Evento " << contador << ": ";
         std::cout << "Datos=" << actual->datos << ", ";
         std::cout << "Cientifico=" << actual->cientifico << ", ";
@@ -98,6 +121,7 @@ void MaquinaDelTiempo::mostrarEventosTipoB() {
 }
 
 void MaquinaDelTiempo::mostrarSingularidad() {
+    std :: cout << "\n";
     if (nodoSingularidad != nullptr) {
         std::cout << "Singularidad encontrada en el evento con Datos=" << nodoSingularidad->datos << std::endl;
     } else {
@@ -106,6 +130,7 @@ void MaquinaDelTiempo::mostrarSingularidad() {
 }
 
 int MaquinaDelTiempo::obtenerTotalEventos() {
+    std :: cout << "\n";
     int contador = 0;
     Nodo* actual = primerEvento;
     while (actual != nullptr) {
@@ -113,4 +138,5 @@ int MaquinaDelTiempo::obtenerTotalEventos() {
         actual = actual->PtrFuturo;
     }
     return contador;
+    std :: cout << "\n";
 }
